@@ -1,8 +1,8 @@
-From 4a85f14d084abda6063f55e18269c564975f4897 Mon Sep 17 00:00:00 2001
+From 96ad19df9eee436882a3a6dc41925c6e0c7fb207 Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@nvidia.com>
 Date: Mon, 8 Feb 2021 22:16:03 +0200
-Subject: [PATCH backport v5.10.43 08/67] i2c: mux: mlxcpld: Get rid of adapter
- numbers enforcement
+Subject: [PATCH 08/66] i2c: mux: mlxcpld: Get rid of adapter numbers
+ enforcement
 
 Do not set the argument 'force_nr' of i2c_mux_add_adapter() routine,
 instead provide argument 'chan_id'.
@@ -68,5 +68,5 @@ index b08dcb183fca..f3cb628bb779 100644
  	int sel_reg_addr;
  };
 -- 
-2.20.1
+2.17.1
 

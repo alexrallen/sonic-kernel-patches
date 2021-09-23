@@ -1,8 +1,8 @@
-From b33a5246d0fb1a7936349616656eef6117eb97c7 Mon Sep 17 00:00:00 2001
+From 99e449adf0a18797ede0a0f2a47712290030d5fb Mon Sep 17 00:00:00 2001
 From: Mykola Kostenok <c_mykolak@nvidia.com>
 Date: Tue, 8 Jun 2021 15:44:14 +0300
-Subject: [PATCH backport v5.10.43 19/67] mlxsw: thermal: Read module
- temperature thresholds using MTMP register
+Subject: [PATCH 19/66] mlxsw: thermal: Read module temperature thresholds
+ using MTMP register
 
 mlxsw_thermal_module_trips_update() is used to update the trip points of
 the module's thermal zone. Currently, this is done by querying the
@@ -28,7 +28,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  1 file changed, 30 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
-index 0983e4d4f888..b96fb88aac0a 100644
+index e1ef913c81ef..d54b67d0bda7 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 @@ -149,22 +149,27 @@ mlxsw_thermal_module_trips_reset(struct mlxsw_thermal_module *tz)
@@ -102,7 +102,7 @@ index 0983e4d4f888..b96fb88aac0a 100644
  	if (!err && temp > 0)
  		mlxsw_thermal_tz_score_update(thermal, tzdev, tz->trips, temp);
  
-@@ -736,7 +742,10 @@ mlxsw_thermal_module_init(struct device *dev, struct mlxsw_core *core,
+@@ -737,7 +743,10 @@ mlxsw_thermal_module_init(struct device *dev, struct mlxsw_core *core,
  			  struct mlxsw_thermal *thermal, u8 module)
  {
  	struct mlxsw_thermal_module *module_tz;
@@ -113,7 +113,7 @@ index 0983e4d4f888..b96fb88aac0a 100644
  	module_tz = &thermal->tz_module_arr[module];
  	/* Skip if parent is already set (case of port split). */
  	if (module_tz->parent)
-@@ -747,8 +756,12 @@ mlxsw_thermal_module_init(struct device *dev, struct mlxsw_core *core,
+@@ -748,8 +757,12 @@ mlxsw_thermal_module_init(struct device *dev, struct mlxsw_core *core,
  	       sizeof(thermal->trips));
  	/* Initialize all trip point. */
  	mlxsw_thermal_module_trips_reset(module_tz);
@@ -128,5 +128,5 @@ index 0983e4d4f888..b96fb88aac0a 100644
  
  static void mlxsw_thermal_module_fini(struct mlxsw_thermal_module *module_tz)
 -- 
-2.20.1
+2.17.1
 

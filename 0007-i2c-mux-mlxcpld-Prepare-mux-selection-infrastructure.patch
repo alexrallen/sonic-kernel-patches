@@ -1,8 +1,8 @@
-From f0424930cf5aa34f9133dae2f2906c898d2c42a8 Mon Sep 17 00:00:00 2001
+From 8190b390a96768ed8618ffc814a9e261dee94fc2 Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@nvidia.com>
 Date: Mon, 8 Feb 2021 22:16:02 +0200
-Subject: [PATCH backport v5.10.43 07/67] i2c: mux: mlxcpld: Prepare mux
- selection infrastructure for two-byte support
+Subject: [PATCH 07/66] i2c: mux: mlxcpld: Prepare mux selection infrastructure
+ for two-byte support
 
 Allow to program register value zero to the mux register, which is
 required for word address mux register space support.
@@ -85,5 +85,5 @@ index b53f1479272d..113ad84cdd94 100644
  	/* Create an adapter for each channel. */
  	for (num = 0; num < CPLD_MUX_MAX_NCHANS; num++) {
 -- 
-2.20.1
+2.17.1
 

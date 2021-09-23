@@ -1,8 +1,7 @@
-From 204967eaa8ccc0ccc33aa712b991ac84f6f9bec4 Mon Sep 17 00:00:00 2001
+From ab111e0ca2d82d7e146d20e2ed6d185e0bbaab71 Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@nvidia.com>
 Date: Fri, 22 Jan 2021 21:24:58 +0200
-Subject: [PATCH backport v5.10.43 05/67] i2c: mux: mlxcpld: Move header file
- out of x86 realm
+Subject: [PATCH 05/66] i2c: mux: mlxcpld: Move header file out of x86 realm
 
 Move out header file from include/linux/platform_data/x86/ to
 include/linux/platform_data/, since it does not depend on x86
@@ -36,5 +35,5 @@ similarity index 100%
 rename from include/linux/platform_data/x86/mlxcpld.h
 rename to include/linux/platform_data/mlxcpld.h
 -- 
-2.20.1
+2.17.1
 

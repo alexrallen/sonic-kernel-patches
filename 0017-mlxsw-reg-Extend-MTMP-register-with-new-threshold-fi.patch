@@ -1,8 +1,8 @@
-From 2f0085c537ca5839fbddde417824607265be735a Mon Sep 17 00:00:00 2001
+From 0c81b7095502b500288d79ea20032bd36d8f315d Mon Sep 17 00:00:00 2001
 From: Mykola Kostenok <c_mykolak@nvidia.com>
 Date: Tue, 8 Jun 2021 15:44:11 +0300
-Subject: [PATCH backport v5.10.43 17/67] mlxsw: reg: Extend MTMP register with
- new threshold field
+Subject: [PATCH 17/66] mlxsw: reg: Extend MTMP register with new threshold
+ field
 
 Extend Management Temperature (MTMP) register with new field specifying
 the maximum temperature threshold.
@@ -68,7 +68,7 @@ index 2196c946698a..d41afdfbd085 100644
  	return 0;
  }
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
-index dfea14399607..cb1b68b6bf47 100644
+index 85f0ce285146..8d844d3c2e40 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 @@ -281,7 +281,7 @@ static int mlxsw_thermal_get_temp(struct thermal_zone_device *tzdev,
@@ -99,7 +99,7 @@ index dfea14399607..cb1b68b6bf47 100644
  		mlxsw_thermal_tz_score_update(thermal, tzdev, tz->trips, temp);
  
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/reg.h b/drivers/net/ethernet/mellanox/mlxsw/reg.h
-index 3c3069afc0a3..2f5cdab41863 100644
+index c670bf3464c2..dfcde953174c 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/reg.h
 +++ b/drivers/net/ethernet/mellanox/mlxsw/reg.h
 @@ -8485,6 +8485,14 @@ MLXSW_ITEM32(reg, mtmp, sensor_index, 0x00, 0, 12);
@@ -144,5 +144,5 @@ index 3c3069afc0a3..2f5cdab41863 100644
  		mlxsw_reg_mtmp_sensor_name_memcpy_from(payload, sensor_name);
  }
 -- 
-2.20.1
+2.17.1
 

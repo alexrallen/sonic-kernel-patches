@@ -1,8 +1,7 @@
-From a02924fc506bb6cba2e66970b0a139a22ed94a41 Mon Sep 17 00:00:00 2001
+From 65e6981e4b84dd17eeb242b01066f3c4aefe4b6b Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@nvidia.com>
 Date: Mon, 8 Feb 2021 22:16:01 +0200
-Subject: [PATCH backport v5.10.43 06/67] i2c: mux: mlxcpld: Convert driver to
- platform driver
+Subject: [PATCH 06/66] i2c: mux: mlxcpld: Convert driver to platform driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -181,5 +180,5 @@ index 3d894cfb19df..b53f1479272d 100644
  MODULE_AUTHOR("Michael Shych (michaels@mellanox.com)");
  MODULE_DESCRIPTION("Mellanox I2C-CPLD-MUX driver");
 -- 
-2.20.1
+2.17.1
 

@@ -1,8 +1,8 @@
-From 50b92370e9b365781bffbecdbcbd9b9dffd430c7 Mon Sep 17 00:00:00 2001
+From d78993052903ae1ff137de34ea2f8267497b4bf7 Mon Sep 17 00:00:00 2001
 From: Vladyslav Tarasiuk <vladyslavt@nvidia.com>
 Date: Fri, 9 Apr 2021 11:06:39 +0300
-Subject: [PATCH backport v5.10.43 25/67] ethtool: Add fallback to
- get_module_eeprom from netlink command
+Subject: [PATCH 25/66] ethtool: Add fallback to get_module_eeprom from netlink
+ command
 
 In case netlink get_module_eeprom_by_page() callback is not implemented
 by the driver, try to call old get_module_info() and get_module_eeprom()
@@ -97,5 +97,5 @@ index 8536dd905da5..1a49c133d401 100644
  	page_data.offset = request->offset;
  	page_data.length = request->length;
 -- 
-2.20.1
+2.17.1
 

@@ -1,8 +1,8 @@
-From 93e823d183bb561656bb28e1805e5454de12f0fc Mon Sep 17 00:00:00 2001
+From 7219ba9a8079030d8b36fe68637738b1d3af887c Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@nvidia.com>
 Date: Tue, 6 Apr 2021 15:27:33 +0300
-Subject: [PATCH backport v5.10.43 15/67] mlxsw: core: Remove critical trip
- points from thermal zones
+Subject: [PATCH 15/66] mlxsw: core: Remove critical trip points from thermal
+ zones
 
 Disable software thermal protection by removing critical trip points
 from all thermal zones.
@@ -22,7 +22,7 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  1 file changed, 6 insertions(+), 21 deletions(-)
 
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
-index 7447c2a73cbd..dfea14399607 100644
+index 3032075e6cca..85f0ce285146 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 @@ -19,7 +19,6 @@
@@ -120,5 +120,5 @@ index 7447c2a73cbd..dfea14399607 100644
  
  	tz->trips[trip].temp = temp;
 -- 
-2.20.1
+2.17.1
 

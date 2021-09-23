@@ -1,8 +1,8 @@
-From 4ff25aa6dd7b11d04d4a519963dbe739bb8951ec Mon Sep 17 00:00:00 2001
+From bafff2ccd3688322d710fbe25aa2e961f391861c Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@nvidia.com>
 Date: Mon, 8 Feb 2021 22:16:04 +0200
-Subject: [PATCH backport v5.10.43 09/67] i2c: mux: mlxcpld: Extend driver to
- support word address space devices
+Subject: [PATCH 09/66] i2c: mux: mlxcpld: Extend driver to support word
+ address space devices
 
 Extend driver to allow I2C routing control through CPLD devices with
 word address space. Till now only CPLD devices with byte address space
@@ -112,5 +112,5 @@ index f3cb628bb779..341c7796e36b 100644
  
  #endif /* _LINUX_I2C_MLXCPLD_H */
 -- 
-2.20.1
+2.17.1
 

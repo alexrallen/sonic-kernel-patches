@@ -1,8 +1,7 @@
-From 060e87dcb051f99fa155b600034a9b30bff00bca Mon Sep 17 00:00:00 2001
+From 1a5b8d814300928a1ab8f70479484baab239d662 Mon Sep 17 00:00:00 2001
 From: Jakub Kicinski <kuba@kernel.org>
 Date: Fri, 20 Nov 2020 14:50:52 -0800
-Subject: [PATCH backport v5.10.43 16/67] net: don't include ethtool.h from
- netdevice.h
+Subject: [PATCH 16/66] net: don't include ethtool.h from netdevice.h
 
 linux/netdevice.h is included in very many places, touching any
 of its dependecies causes large incremental builds.
@@ -344,7 +343,7 @@ index ff20a2ac4c2f..6ae75b771a15 100644
  #include <linux/mutex.h>
  #include <linux/netdevice.h>
 diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-index d58b51d277f1..ca1535ebb6e7 100644
+index 2adcf24848a4..ab1e0fcccabb 100644
 --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
 +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
 @@ -5,6 +5,7 @@
@@ -427,7 +426,7 @@ index 615f3776b4be..6d308183c25f 100644
  #include <linux/types.h>
  #include <linux/module.h>
 diff --git a/drivers/net/vrf.c b/drivers/net/vrf.c
-index b9b7e00b72a8..af23cfc2635c 100644
+index bc96ac0c5769..41635b850007 100644
 --- a/drivers/net/vrf.c
 +++ b/drivers/net/vrf.c
 @@ -9,6 +9,7 @@
@@ -603,7 +602,7 @@ index 00853065dfa0..c70f93d64483 100644
  #include <linux/slab.h>
  #include <linux/kernel.h>
 diff --git a/net/socket.c b/net/socket.c
-index 6e6cccc2104f..09b2998510bd 100644
+index 002d5952ae5d..2cc7344e0521 100644
 --- a/net/socket.c
 +++ b/net/socket.c
 @@ -52,6 +52,7 @@
@@ -615,5 +614,5 @@ index 6e6cccc2104f..09b2998510bd 100644
  #include <linux/socket.h>
  #include <linux/file.h>
 -- 
-2.20.1
+2.17.1
 

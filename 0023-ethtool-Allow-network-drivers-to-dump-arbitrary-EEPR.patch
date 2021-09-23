@@ -1,8 +1,8 @@
-From 97aaf052dab9553bc22214893f9c2a44a42fdd08 Mon Sep 17 00:00:00 2001
+From 4bad125612cd23152cdf096960bd6c1643993d0a Mon Sep 17 00:00:00 2001
 From: Vladyslav Tarasiuk <vladyslavt@nvidia.com>
 Date: Fri, 9 Apr 2021 11:06:34 +0300
-Subject: [PATCH backport v5.10.43 23/67] ethtool: Allow network drivers to
- dump arbitrary EEPROM data
+Subject: [PATCH 23/66] ethtool: Allow network drivers to dump arbitrary EEPROM
+ data
 
 Define get_module_eeprom_by_page() ethtool callback and implement
 netlink infrastructure.
@@ -511,5 +511,5 @@ index d8efec516d86..d2a1ac7a1ec6 100644
  int ethnl_set_linkinfo(struct sk_buff *skb, struct genl_info *info);
  int ethnl_set_linkmodes(struct sk_buff *skb, struct genl_info *info);
 -- 
-2.20.1
+2.17.1
 

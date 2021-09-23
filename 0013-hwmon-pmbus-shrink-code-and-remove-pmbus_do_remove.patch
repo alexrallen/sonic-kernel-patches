@@ -1,8 +1,7 @@
-From a3b467566b25f6c559c635b52e9f7a6146b11f11 Mon Sep 17 00:00:00 2001
+From ab269af4b9fc3631547a09d9050b266a7b2fd113 Mon Sep 17 00:00:00 2001
 From: Bartosz Golaszewski <bgolaszewski@baylibre.com>
 Date: Mon, 26 Oct 2020 11:53:52 +0100
-Subject: [PATCH backport v5.10.43 13/67] hwmon: (pmbus) shrink code and remove
- pmbus_do_remove()
+Subject: [PATCH 13/66] hwmon: (pmbus) shrink code and remove pmbus_do_remove()
 
 The only action currently performed in pmbus_do_remove() is removing the
 debugfs hierarchy. We can schedule a devm action at probe time and remove
@@ -18,6 +17,8 @@ Signed-off-by: Guenter Roeck <linux@roeck-us.net>
  drivers/hwmon/pmbus/adm1266.c      |  1 -
  drivers/hwmon/pmbus/adm1275.c      |  1 -
  drivers/hwmon/pmbus/bel-pfe.c      |  1 -
+ drivers/hwmon/pmbus/dni_dps460.c   |  1 -
+ drivers/hwmon/pmbus/dps1900.c      |  1 -
  drivers/hwmon/pmbus/ibm-cffps.c    |  1 -
  drivers/hwmon/pmbus/inspur-ipsps.c |  1 -
  drivers/hwmon/pmbus/ir35221.c      |  1 -
@@ -45,7 +46,7 @@ Signed-off-by: Guenter Roeck <linux@roeck-us.net>
  drivers/hwmon/pmbus/ucd9200.c      |  1 -
  drivers/hwmon/pmbus/xdpe12284.c    |  1 -
  drivers/hwmon/pmbus/zl6100.c       |  1 -
- 32 files changed, 9 insertions(+), 52 deletions(-)
+ 34 files changed, 9 insertions(+), 54 deletions(-)
 
 diff --git a/Documentation/hwmon/pmbus-core.rst b/Documentation/hwmon/pmbus-core.rst
 index e22c4f6808bc..73e23ab42cc3 100644
@@ -122,6 +123,30 @@ index 2c5b853d6c7f..aed7542d7ce5 100644
  	.probe_new = pfe_pmbus_probe,
 -	.remove = pmbus_do_remove,
  	.id_table = pfe_device_id,
+ };
+ 
+diff --git a/drivers/hwmon/pmbus/dni_dps460.c b/drivers/hwmon/pmbus/dni_dps460.c
+index 4e96a430bbe9..0d6fc448d27f 100644
+--- a/drivers/hwmon/pmbus/dni_dps460.c
++++ b/drivers/hwmon/pmbus/dni_dps460.c
+@@ -375,7 +375,6 @@ static int dni_dps460_remove(struct i2c_client *client)
+ 	sysfs_remove_group(&client->dev.kobj, &dni_dps460_attr_grp);
+ 	if (data->info)
+ 		kfree(data->info);
+-	pmbus_do_remove(client);
+ 	return 0;
+ }
+ 
+diff --git a/drivers/hwmon/pmbus/dps1900.c b/drivers/hwmon/pmbus/dps1900.c
+index decbd07c6d6e..c7400d4f1bfa 100644
+--- a/drivers/hwmon/pmbus/dps1900.c
++++ b/drivers/hwmon/pmbus/dps1900.c
+@@ -151,7 +151,6 @@ static struct i2c_driver dps1900_driver = {
+ 		.name = "dps1900",
+ 	},
+ 	.probe = dps1900_probe,
+-	.remove = pmbus_do_remove,
+ 	.id_table = dps1900_id,
  };
  
 diff --git a/drivers/hwmon/pmbus/ibm-cffps.c b/drivers/hwmon/pmbus/ibm-cffps.c
@@ -482,5 +507,5 @@ index e8bda340482b..69120ca7aaa8 100644
  };
  
 -- 
-2.20.1
+2.17.1
 

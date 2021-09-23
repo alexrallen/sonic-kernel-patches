@@ -1,8 +1,8 @@
-From a3c2bca414c80b115d7d2a5128f2ff4a4bde42f9 Mon Sep 17 00:00:00 2001
+From 31b4bc766911ebb36e71540b10ae6c582656be93 Mon Sep 17 00:00:00 2001
 From: Daniel Lezcano <daniel.lezcano@linaro.org>
 Date: Sun, 14 Mar 2021 12:13:29 +0100
-Subject: [PATCH backport v5.10.43 14/67] thermal/drivers/core: Use a char
- pointer for the cooling device name
+Subject: [PATCH 14/66] thermal/drivers/core: Use a char pointer for the
+ cooling device name
 
 We want to have any kind of name for the cooling devices as we do no
 longer want to rely on auto-numbering. Let's replace the cooling
@@ -30,7 +30,7 @@ Link: https://lore.kernel.org/r/20210314111333.16551-1-daniel.lezcano@linaro.org
  3 files changed, 24 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
-index bf85ce9835d7..7447c2a73cbd 100644
+index 42e4437ac3c1..3032075e6cca 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 @@ -141,7 +141,7 @@ static int mlxsw_get_cooling_device_idx(struct mlxsw_thermal *thermal,
@@ -135,5 +135,5 @@ index d07ea27e72a9..02eb71295753 100644
  	struct device_node *np;
  	void *devdata;
 -- 
-2.20.1
+2.17.1
 
