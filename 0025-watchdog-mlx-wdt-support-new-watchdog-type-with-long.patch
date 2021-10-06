@@ -1,10 +1,10 @@
-From cbe97c15b2688abef8745977e85e13dbf1bfc3e8 Mon Sep 17 00:00:00 2001
+From cd111853714152b3b697e182fc366b5d1bf95373 Mon Sep 17 00:00:00 2001
 From: Michael Shych <michaelsh@mellanox.com>
 Date: Sun, 24 May 2020 13:15:07 +0300
-Subject: [new watchdog type 1/1] watchdog: mlx-wdt: support new watchdog type
- with longer timeout period platform_data/mlxreg: support new watchdog type
- with longer timeout period platform/x86: mlx-platform: support new watchdog
- type with longer timeout
+Subject: [PATCH 25/65] watchdog: mlx-wdt: support new watchdog type with
+ longer timeout period platform_data/mlxreg: support new watchdog type with
+ longer timeout period platform/x86: mlx-platform: support new watchdog type
+ with longer timeout
 
 New programmable logic device can have watchdog type 3 implementation.
 It's same as Type 2 with extended maximum timeout period.
@@ -14,16 +14,16 @@ It is differentiated by WD capability bit.
 
 Signed-off-by: Michael Shych <michaelsh@mellanox.com>
 ---
- drivers/platform/x86/mlx-platform.c  | 106 +++++++++++++++++++++++++++++++++++
- drivers/watchdog/mlx_wdt.c           |  86 ++++++++++++++++++++++------
+ drivers/platform/x86/mlx-platform.c  | 106 +++++++++++++++++++++++++++
+ drivers/watchdog/mlx_wdt.c           |  86 +++++++++++++++++-----
  include/linux/platform_data/mlxreg.h |   5 +-
  3 files changed, 179 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/platform/x86/mlx-platform.c b/drivers/platform/x86/mlx-platform.c
-index 034736cec..208f4a476 100644
+index 7eac5c17544b..4bce6cee6745 100644
 --- a/drivers/platform/x86/mlx-platform.c
 +++ b/drivers/platform/x86/mlx-platform.c
-@@ -186,7 +186,9 @@
+@@ -187,7 +187,9 @@
  #define MLXPLAT_CPLD_WD_RESET_ACT_MASK	GENMASK(7, 1)
  #define MLXPLAT_CPLD_WD_FAN_ACT_MASK	(GENMASK(7, 0) & ~BIT(4))
  #define MLXPLAT_CPLD_WD_COUNT_ACT_MASK	(GENMASK(7, 0) & ~BIT(7))
@@ -33,7 +33,7 @@ index 034736cec..208f4a476 100644
  #define MLXPLAT_CPLD_WD_MAX_DEVS	2
  
  /* mlxplat_priv - platform private data
-@@ -2071,6 +2073,84 @@ static struct mlxreg_core_platform_data mlxplat_mlxcpld_wd_set_type2[] = {
+@@ -2072,6 +2074,84 @@ static struct mlxreg_core_platform_data mlxplat_mlxcpld_wd_set_type2[] = {
  	},
  };
  
@@ -118,7 +118,7 @@ index 034736cec..208f4a476 100644
  static bool mlxplat_mlxcpld_writeable_reg(struct device *dev, unsigned int reg)
  {
  	switch (reg) {
-@@ -2101,8 +2181,10 @@ static bool mlxplat_mlxcpld_writeable_reg(struct device *dev, unsigned int reg)
+@@ -2102,8 +2182,10 @@ static bool mlxplat_mlxcpld_writeable_reg(struct device *dev, unsigned int reg)
  	case MLXPLAT_CPLD_LPC_REG_WD1_TMR_OFFSET:
  	case MLXPLAT_CPLD_LPC_REG_WD1_ACT_OFFSET:
  	case MLXPLAT_CPLD_LPC_REG_WD2_TMR_OFFSET:
@@ -129,7 +129,7 @@ index 034736cec..208f4a476 100644
  	case MLXPLAT_CPLD_LPC_REG_WD3_ACT_OFFSET:
  	case MLXPLAT_CPLD_LPC_REG_PWM1_OFFSET:
  	case MLXPLAT_CPLD_LPC_REG_PWM_CONTROL_OFFSET:
-@@ -2729,6 +2811,27 @@ static int mlxplat_mlxcpld_verify_bus_topology(int *nr)
+@@ -2755,6 +2837,27 @@ static int mlxplat_mlxcpld_verify_bus_topology(int *nr)
  	return 0;
  }
  
@@ -157,7 +157,7 @@ index 034736cec..208f4a476 100644
  static int __init mlxplat_init(void)
  {
  	struct mlxplat_priv *priv;
-@@ -2861,6 +2964,9 @@ static int __init mlxplat_init(void)
+@@ -2887,6 +2990,9 @@ static int __init mlxplat_init(void)
  	}
  
  	/* Add WD drivers. */
@@ -168,7 +168,7 @@ index 034736cec..208f4a476 100644
  		if (mlxplat_wd_data[j]) {
  			mlxplat_wd_data[j]->regmap = priv->regmap;
 diff --git a/drivers/watchdog/mlx_wdt.c b/drivers/watchdog/mlx_wdt.c
-index 74b0622a1..e45701b82 100644
+index 74b0622a1d7e..e45701b82196 100644
 --- a/drivers/watchdog/mlx_wdt.c
 +++ b/drivers/watchdog/mlx_wdt.c
 @@ -21,6 +21,7 @@
@@ -343,7 +343,7 @@ index 74b0622a1..e45701b82 100644
  }
  
 diff --git a/include/linux/platform_data/mlxreg.h b/include/linux/platform_data/mlxreg.h
-index a2adc3ad4..03d768d73 100644
+index a2adc3ad45f2..03d768d73a5f 100644
 --- a/include/linux/platform_data/mlxreg.h
 +++ b/include/linux/platform_data/mlxreg.h
 @@ -43,10 +43,13 @@
@@ -370,5 +370,5 @@ index a2adc3ad4..03d768d73 100644
  	u8 regnum;
  };
 -- 
-2.11.0
+2.17.1
 

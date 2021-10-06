@@ -1,8 +1,8 @@
-From b3fb34f9f6215e0677de88e07f2139b56ba7508f Mon Sep 17 00:00:00 2001
+From efddb67e16ed24e42f7cef56e950d14576afccca Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Thu, 21 May 2020 13:34:17 +0300
-Subject: [backport 4.19 2/3] mlxsw: core: thermal: Separate temperature trend
- read callback
+Subject: [PATCH 24/65] mlxsw: core: thermal: Separate temperature trend read
+ callback
 
 Separate temperature trend reading callback between chip thermal zone
 and others types of thermal zones (modules and gearboxes).
@@ -17,11 +17,11 @@ add new get_trend() callback for chip.
 
 Signed-off-by: Vadim Pasternak <vadimp@mellanox.com>
 ---
- drivers/net/ethernet/mellanox/mlxsw/core_thermal.c | 23 ++++++++++++++++++----
+ .../ethernet/mellanox/mlxsw/core_thermal.c    | 23 +++++++++++++++----
  1 file changed, 19 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
-index 77578f5bb..775343a25 100644
+index 5c60bf6521c6..32c352e7b28b 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/core_thermal.c
 @@ -402,8 +402,7 @@ static int mlxsw_thermal_set_trip_hyst(struct thermal_zone_device *tzdev,
@@ -76,5 +76,5 @@ index 77578f5bb..775343a25 100644
  
  static int mlxsw_thermal_get_max_state(struct thermal_cooling_device *cdev,
 -- 
-2.11.0
+2.17.1
 

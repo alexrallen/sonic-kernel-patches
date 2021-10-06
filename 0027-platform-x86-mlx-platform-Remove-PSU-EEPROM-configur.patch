@@ -1,7 +1,7 @@
-From e480c548db43d81659874c4fa89eeda9f4096e5c Mon Sep 17 00:00:00 2001
+From 96a0d6983de16f42171170a7aee831daac7a8c2a Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Wed, 3 Jun 2020 10:59:20 +0300
-Subject: [backport bugfix] platform/x86: mlx-platform: Remove PSU EEPROM
+Subject: [PATCH 27/65] platform/x86: mlx-platform: Remove PSU EEPROM
  configuration
 
 Remove PSU EEPROM configuration for systems class equipped with
@@ -22,10 +22,10 @@ Signed-off-by: Vadim Pasternak <vadimp@mellanox.com>
  1 file changed, 2 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/platform/x86/mlx-platform.c b/drivers/platform/x86/mlx-platform.c
-index 208f4a476..d6c87fb88 100644
+index 4bce6cee6745..92c6a0c7cb4e 100644
 --- a/drivers/platform/x86/mlx-platform.c
 +++ b/drivers/platform/x86/mlx-platform.c
-@@ -329,15 +329,6 @@ static struct i2c_board_info mlxplat_mlxcpld_psu[] = {
+@@ -330,15 +330,6 @@ static struct i2c_board_info mlxplat_mlxcpld_psu[] = {
  	},
  };
  
@@ -41,7 +41,7 @@ index 208f4a476..d6c87fb88 100644
  static struct i2c_board_info mlxplat_mlxcpld_pwr[] = {
  	{
  		I2C_BOARD_INFO("dps460", 0x59),
-@@ -762,15 +753,13 @@ static struct mlxreg_core_data mlxplat_mlxcpld_default_ng_psu_items_data[] = {
+@@ -763,15 +754,13 @@ static struct mlxreg_core_data mlxplat_mlxcpld_default_ng_psu_items_data[] = {
  		.label = "psu1",
  		.reg = MLXPLAT_CPLD_LPC_REG_PSU_OFFSET,
  		.mask = BIT(0),
@@ -60,5 +60,5 @@ index 208f4a476..d6c87fb88 100644
  };
  
 -- 
-2.11.0
+2.17.1
 

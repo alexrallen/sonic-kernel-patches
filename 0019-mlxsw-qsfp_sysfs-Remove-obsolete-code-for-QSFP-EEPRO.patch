@@ -1,8 +1,8 @@
-From 148312b80f5285b25140a72cf3d4671e3486dcd2 Mon Sep 17 00:00:00 2001
+From 2cbde74ff7a6d83f9995e234d3fcee1bdc3da092 Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Tue, 31 Mar 2020 23:01:41 +0300
-Subject: [backport 2/2] mlxsw: qsfp_sysfs: Remove obsolete code for QSFP
- EEPROM reading
+Subject: [PATCH 19/65] mlxsw: qsfp_sysfs: Remove obsolete code for QSFP EEPROM
+ reading
 
 Remove QSFP EEPROM attribures from 'sysfs'.
 This code is obsoleted.
@@ -16,10 +16,10 @@ Signed-off-by: Vadim Pasternak <vadimp@mellanox.com>
  2 files changed, 13 insertions(+), 290 deletions(-)
 
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/core.c b/drivers/net/ethernet/mellanox/mlxsw/core.c
-index c38c1c565..b67d61077 100644
+index 34e0480ae24e..f4fdcda4ec9f 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/core.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/core.c
-@@ -1120,11 +1120,11 @@ void mlxsw_core_bus_device_unregister(struct mlxsw_core *mlxsw_core,
+@@ -1121,11 +1121,11 @@ void mlxsw_core_bus_device_unregister(struct mlxsw_core *mlxsw_core,
  			return;
  	}
  
@@ -34,7 +34,7 @@ index c38c1c565..b67d61077 100644
  		mlxsw_core->driver->params_unregister(mlxsw_core);
  	if (!reload)
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/qsfp_sysfs.c b/drivers/net/ethernet/mellanox/mlxsw/qsfp_sysfs.c
-index 49563a703..931dbd58e 100644
+index 49563a703d75..931dbd58e4bd 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/qsfp_sysfs.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/qsfp_sysfs.c
 @@ -41,171 +41,18 @@
@@ -407,5 +407,5 @@ index 49563a703..931dbd58e 100644
  
  MODULE_LICENSE("Dual BSD/GPL");
 -- 
-2.20.1
+2.17.1
 

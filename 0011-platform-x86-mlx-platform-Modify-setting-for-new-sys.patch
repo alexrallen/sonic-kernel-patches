@@ -1,8 +1,8 @@
-From 4542c5c997c02965a24b39bef721067900b616f8 Mon Sep 17 00:00:00 2001
+From 9514385e28c578ce411639c2ca7eb64bfc0ff0e2 Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Tue, 17 Dec 2019 18:38:51 +0200
-Subject: [PATCH platform backport 1/2] platform/x86: mlx-platform: Modify
- setting for new system type
+Subject: [PATCH 11/65] platform/x86: mlx-platform: Modify setting for new
+ system type
 
 Modify setting for new Mellanox system types of basic class VMOD0009,
 containing Mellanox systems equipped with the switch devices
@@ -418,5 +418,5 @@ index 4a445ff72ed9..8ddda8498241 100644
  
  	platform_device_unregister(priv->pdev_i2c);
 -- 
-2.20.1
+2.17.1
 

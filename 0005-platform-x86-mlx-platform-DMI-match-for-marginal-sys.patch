@@ -1,8 +1,8 @@
-From 7f4cedc718f415cf7aa0c09bcc9ffdbb5f43b093 Mon Sep 17 00:00:00 2001
+From c12fc8c62df1d0499e8e6e3c249ff438800c2977 Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Mon, 2 Sep 2019 09:11:02 +0300
-Subject: [PATCH not for upstream] platform/x86: mlx-platform: DMI match for
- marginal systems
+Subject: [PATCH 05/65] platform/x86: mlx-platform: DMI match for marginal
+ systems
 
 Add DMI match rule for the system with broken SMBIOS.
 
@@ -63,5 +63,5 @@ index c3e75b26fe0b..62c880b56f58 100644
  };
  
 -- 
-2.20.1
+2.17.1
 

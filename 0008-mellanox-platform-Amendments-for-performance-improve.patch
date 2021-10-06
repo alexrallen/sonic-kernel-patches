@@ -1,8 +1,8 @@
-From 8779c1110a38a3064638d1f322a26b9218b0c293 Mon Sep 17 00:00:00 2001
+From 2779a0753fd314a4bf993248582785959e80ffaf Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Thu, 28 Nov 2019 08:57:21 +0200
-Subject: [PATCH mellanox platform v1] mellanox: platform: Amendments for
- performance improvement
+Subject: [PATCH 08/65] mellanox: platform: Amendments for performance
+ improvement
 
 The pacth contains the next modifications:
 (2)
@@ -29,7 +29,7 @@ Signed-off-by: Vadim Pasternak <vadimp@mellanox.com>
  2 files changed, 35 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-mlxcpld.c b/drivers/i2c/busses/i2c-mlxcpld.c
-index 2fd717d8dd30..41b57027e348 100644
+index 71d7bae2cbca..3ee44d4bf424 100644
 --- a/drivers/i2c/busses/i2c-mlxcpld.c
 +++ b/drivers/i2c/busses/i2c-mlxcpld.c
 @@ -51,7 +51,7 @@
@@ -166,5 +166,5 @@ index 17a340aa9f75..5087f4c4e003 100644
  	return 0;
  
 -- 
-2.20.1
+2.17.1
 
