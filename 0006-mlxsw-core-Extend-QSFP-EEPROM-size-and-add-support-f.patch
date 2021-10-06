@@ -1,8 +1,8 @@
-From 002991a4c0335743135cde1e36a5b53ecfa55233 Mon Sep 17 00:00:00 2001
+From 600e9ff33b645e64b94eae4dd3fcb4973714dcca Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Wed, 25 Sep 2019 20:13:29 +0300
-Subject: [PATCH 06/65] mlxsw: core: Extend QSFP EEPROM size and add support
- for 400G transceivers for ethtool
+Subject: [PATCH mlxsw backport to 4.19] mlxsw: core: Extend QSFP EEPROM size
+ and add support for 400G transceivers for ethtool
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -172,7 +172,7 @@ index d2c7ce67c300..03eae1ed27fe 100644
  			netdev_err(netdev, "Eeprom query failed\n");
  			return err;
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/reg.h b/drivers/net/ethernet/mellanox/mlxsw/reg.h
-index 0ca8a7c5289e..e5ef8d4ee6e1 100644
+index f2512ea9cba1..0832ec5d3f71 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/reg.h
 +++ b/drivers/net/ethernet/mellanox/mlxsw/reg.h
 @@ -8163,6 +8163,7 @@ MLXSW_ITEM32(reg, mcia, device_address, 0x04, 0, 16);
@@ -228,5 +228,5 @@ index dc69391d2bba..08bb1554093d 100644
  /* The reset() operation must clear the flags for the components which
   * were actually reset.  On successful return, the flags indicate the
 -- 
-2.17.1
+2.20.1
 

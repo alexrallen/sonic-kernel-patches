@@ -1,8 +1,8 @@
-From f26099afd14d86bb76683045489353dd47fa70a8 Mon Sep 17 00:00:00 2001
+From abc748c3e12290443c4ec95aed11b59bf4c948f3 Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Thu, 7 May 2020 15:05:12 +0300
-Subject: [PATCH 22/65] Add support for new transceivers types: QSFP-DD and
- QSFP+ with Common Management Interface Specification (CMIS).
+Subject: [backport] Add support for new transceivers types: QSFP-DD and QSFP+
+ with Common Management Interface Specification (CMIS).
 
 The Quad Small Form Factor Pluggable Double Density (QSFP-DD) hardware
 specification defines a form factor that supports up to 400 Gbps in
@@ -13,12 +13,12 @@ The QSFP-DD supports both optical and copper interfaces.
 
 Signed-off-by: Vadim Pasternak <vadimp@mellanox.com>
 ---
- .../net/ethernet/mellanox/mlxsw/core_env.c    | 71 ++++++++++++++-----
- drivers/net/ethernet/mellanox/mlxsw/reg.h     |  2 +
+ drivers/net/ethernet/mellanox/mlxsw/core_env.c | 71 +++++++++++++++++++-------
+ drivers/net/ethernet/mellanox/mlxsw/reg.h      |  2 +
  2 files changed, 54 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/core_env.c b/drivers/net/ethernet/mellanox/mlxsw/core_env.c
-index 03eae1ed27fe..80c8432dde18 100644
+index 03eae1ed2..80c8432dd 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/core_env.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/core_env.c
 @@ -10,8 +10,14 @@
@@ -199,7 +199,7 @@ index 03eae1ed27fe..80c8432dde18 100644
  		if (err) {
  			netdev_err(netdev, "Eeprom query failed\n");
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/reg.h b/drivers/net/ethernet/mellanox/mlxsw/reg.h
-index e5ef8d4ee6e1..1ae22a6d6f43 100644
+index 7ca981464..a5952a03f 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/reg.h
 +++ b/drivers/net/ethernet/mellanox/mlxsw/reg.h
 @@ -8170,6 +8170,7 @@ MLXSW_ITEM32(reg, mcia, size, 0x08, 0, 16);
@@ -219,5 +219,5 @@ index e5ef8d4ee6e1..1ae22a6d6f43 100644
  };
  
 -- 
-2.17.1
+2.11.0
 

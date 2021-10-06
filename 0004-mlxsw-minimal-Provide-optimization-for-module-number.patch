@@ -1,8 +1,8 @@
-From 1c255e7eccf623bea21120c2ff76204ea8b8bc4e Mon Sep 17 00:00:00 2001
+From e385d961403d4338115a9b7ab92285ff01a4478c Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Sun, 1 Sep 2019 16:00:26 +0300
-Subject: [PATCH 04/65] mlxsw: minimal: Provide optimization for module number
- detection
+Subject: [PATCH mellanox backport] mlxsw: minimal: Provide optimization for
+ module number detection
 
 Use new filed 'num_of_module' in MGPIR register in order to get
 the number of modules supported by system directly from system
@@ -610,5 +610,5 @@ index dc7b54c82894..0ca8a7c5289e 100644
  
  /* TNGCR - Tunneling NVE General Configuration Register
 -- 
-2.17.1
+2.20.1
 

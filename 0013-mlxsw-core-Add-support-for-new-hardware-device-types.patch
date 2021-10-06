@@ -1,7 +1,8 @@
-From 42ae778b302e4aea165b12d87fbb999f750d6aac Mon Sep 17 00:00:00 2001
+From 9e19b12bf20acff417ac9dd95d7114e929387123 Mon Sep 17 00:00:00 2001
 From: Vadim Pasternak <vadimp@mellanox.com>
 Date: Mon, 17 Feb 2020 08:37:28 +0200
-Subject: [PATCH 13/65] mlxsw: core: Add support for new hardware device types
+Subject: [v4.19 backport 1/2] mlxsw: core: Add support for new hardware device
+ types
 
 Add validation for new device types, provided by MGPIR
 register.
@@ -68,5 +69,5 @@ index 5087f4c4e003..0407e5224c7f 100644
  					  sizeof(*thermal->tz_gearbox_arr),
  					  GFP_KERNEL);
 -- 
-2.17.1
+2.20.1
 
